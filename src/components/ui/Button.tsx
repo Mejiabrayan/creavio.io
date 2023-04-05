@@ -36,6 +36,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
+
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

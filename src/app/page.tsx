@@ -7,18 +7,18 @@ import TriangleObject from '@/components/TriangleObject';
 import { buttonVariants } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'MyApp | Home',
-  description: 'MyApp Home Page',
+  title: 'Creavio.io | Home',
+  description: 'Creavio.io Home Page',
 };
 
 export default function Home() {
   return (
-    <div className='relative h-screen flex items-center justify-center overflow-x-hidden'>
+    <div className='relative min-h-screen flex items-center justify-center overflow-x-hidden bg-gradient-to-br from-gray-50 to-gray-100'>
       <div className='container pt-32 max-w-7xl w-full mx-auto h-full'>
-        <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
+        <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-start'>
           <LargeHeading
             size='lg'
-            className='three-d text-black dark:text-light-gold text-center lg:text-left'
+            className='three-d text-black dark:text-light-gold text-center lg:text-left leading-none font-extrabold tracking-tight'
           >
             Welcome to <br />
             <span className='bg-gradient-to-tr from-pink-400 via-red-400 to-gray-500 text-transparent bg-clip-text text-6xl'>
@@ -26,12 +26,12 @@ export default function Home() {
             </span>
           </LargeHeading>
 
-          <Paragraph className='max-w-xl lg:text-left'>
-            Lunch your online brand with Creavio.io. An all in one platform for
+          <Paragraph className='max-w-lg lg:max-w-xl lg:text-left text-center text-gray-600'>
+            Launch your online brand with Creavio.io. An all-in-one platform for
             content creators, influencers, and entrepreneurs.{' '}
             <Link
               href='/login'
-              className={buttonVariants({ variant: 'outline' })}
+              className={buttonVariants({ variant: 'outline', size: 'sm' })}
             >
               Sign up
             </Link>

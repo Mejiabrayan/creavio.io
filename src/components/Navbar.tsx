@@ -13,7 +13,7 @@ const Navbar = async () => {
     <div className='fixed backdrop-blur-sm bg-white/75 dark:bg-slate-900/75 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center'>
       <div className='container max-w-7xl mx-auto w-full flex justify-between items-center'>
         <div className='flex items-center'>
-          <Link href='/' className='mr-3 font-bold'>
+          <Link href='/'  className='font-bold bg-gradient-to-tr from-pink-400 via-red-400 to-gray-500 text-transparent bg-clip-text'>
             Creavio
           </Link>
           <div className='md:hidden'>
@@ -28,10 +28,10 @@ const Navbar = async () => {
             Home 
           </Link>
           <Link
-            href='/blog'
+            href='/about'
             className={buttonVariants({ variant: 'ghost' })}
           >
-            Blog
+            About
           </Link>
           {session ? (
             <>

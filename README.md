@@ -4,6 +4,8 @@
 ## Features
 
 [x] Add Footer
-[] Fix Login bug
-[] Add Dashboard Feature
-[] Add User Profile Feature
+[x] Fix Login bug
+[x] Add Dashboard Page
+[] Add User Profile
+[] Add OpenAi Api
+[] Build prompt interface so users can generate text
