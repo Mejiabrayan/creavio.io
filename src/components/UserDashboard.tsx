@@ -4,9 +4,9 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { notFound } from 'next/navigation';
 import LargeHeading from '@/components/ui/LargeHeading';
-import Analytics from './ui/Analytics';
 import AIGenerativeContent from './ui/AIGenerativeContent';
-
+import KeywordGenerator from './KeywordGenerator';
+import { Button } from './ui/Button';
 
 export default async function UserDashboard() {
   const user = await getServerSession(authOptions);
@@ -29,7 +29,10 @@ export default async function UserDashboard() {
               />
             </div>
             <div className='ml-4'>
-              <LargeHeading size='sm' className='font-medium text-gray-900'>
+              <LargeHeading
+                size='sm'
+                className='text-gray-600 text-center lg:text-3xl'
+              >
                 Welcome back, {user.user.name}
               </LargeHeading>
             </div>
@@ -48,15 +51,24 @@ export default async function UserDashboard() {
                   </p>
                 </div>
               </div>
+              <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+                <div className='px-4 py-5 sm:px-6'>
+                  <h3 className='text-lg leading-6 font-medium text-gray-900'>
+                    Dashboard Content
+                  </h3>
+                  <p className='mt-1 max-w-2xl text-sm text-gray-500'>
+                    {/* <KeywordGenerator /> */}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className='mt-8 flex flex-col justify-center items-center mb-20'>
-          <AIGenerativeContent initialContent={''}  />
+        
+
+          <AIGenerativeContent initialContent={''} />
         </div>
-        {/* <div className='mt-8'>
-          <Analytics />
-        </div> */}
       </div>
     </div>
   );
