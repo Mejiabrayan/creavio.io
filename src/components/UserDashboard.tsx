@@ -5,14 +5,12 @@ import { authOptions } from '@/lib/auth';
 import { notFound } from 'next/navigation';
 import LargeHeading from '@/components/ui/LargeHeading';
 import AIGenerativeContent from './ui/AIGenerativeContent';
-import KeywordGenerator from './KeywordGenerator';
-import { Button } from './ui/Button';
 
 export default async function UserDashboard() {
-  const user = await getServerSession(authOptions);
-  if (!user) return notFound();
+  // const user = await getServerSession(authOptions);
+  // if (!user) return notFound();
 
-  const imageSrc = user.user.image || '';
+  // const imageSrc = user.user.image || '';
 
   return (
     <div className='min-h-screen'>
@@ -22,7 +20,7 @@ export default async function UserDashboard() {
             <div className='flex-shrink-0'>
               <Image
                 className='h-12 w-12 rounded-full'
-                src={imageSrc}
+                src={''}
                 alt=''
                 width={48}
                 height={48}
@@ -33,7 +31,7 @@ export default async function UserDashboard() {
                 size='sm'
                 className='text-gray-600 text-center lg:text-3xl'
               >
-                Welcome back, {user.user.name}
+                Welcome back, Brayan Mejia
               </LargeHeading>
             </div>
           </div>
@@ -67,7 +65,7 @@ export default async function UserDashboard() {
         <div className='mt-8 flex flex-col justify-center items-center mb-20'>
         
 
-          <AIGenerativeContent initialContent={''} />
+          {/* <AIGenerativeContent /> */}
         </div>
       </div>
     </div>

@@ -61,8 +61,11 @@ export const authOptions: NextAuthOptions = {
         picture: dbUser.image,
       };
     },
-    redirect() {
-      return '/dashboard';
+    redirect({ url }) {
+      if (url.startsWith('http://localhost:3000')) {
+        return '/dashboard';
+      }
+      return '/';
     },
   },
 };

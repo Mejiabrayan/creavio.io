@@ -5,7 +5,10 @@ import { FC, useState } from 'react';
 import { Button } from './ui/Button';
 import { toast } from './ui/toast';
 
-interface SignInButtonProps {}
+interface SignInButtonProps {
+  className?: string;
+   disabled ?: boolean;
+}
 
 const SignInButton: FC<SignInButtonProps> = ({}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -24,7 +27,7 @@ const SignInButton: FC<SignInButtonProps> = ({}) => {
     }
   }
   return <Button onClick={signInWithGoogle} isLoading={isLoading}>
-    Sign in
+   Coming soon
   </Button>
 };
 

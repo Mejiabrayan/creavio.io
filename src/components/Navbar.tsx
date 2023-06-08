@@ -1,55 +1,49 @@
-import { getServerSession } from 'next-auth';
-import Link from 'next/link';
-import SignInButton from '@/components/SignInButton';
-import SignOutButton from '@/components/SignOutButton';
-import { buttonVariants } from '@/ui/Button';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { authOptions } from '@/lib/auth';
+import { getServerSession } from "next-auth";
+import Link from "next/link";
+import SignInButton from "@/components/SignInButton";
+import SignOutButton from "@/components/SignOutButton";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { authOptions } from "@/lib/auth";
+import { Button } from "./ui/Button";
 
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className='fixed backdrop-blur-sm bg-white/75 dark:bg-slate-900/75 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center'>
-      <div className='container max-w-7xl mx-auto w-full flex justify-between items-center'>
-        <div className='flex items-center'>
-          <Link href='/'  className='font-bold bg-gradient-to-tr from-pink-400 via-red-400 to-gray-500 text-transparent bg-clip-text'>
+    <div className="fixed z-10 top-0 left-0 right-0 h-16 ">
+      <div className="container max-w-7xl mx-auto flex justify-between items-center h-full">
+        <div className="flex items-center">
+          <Link href="/" className="font-bold text-gray-900 dark:text-white">
             Creavio
           </Link>
-          <div className='md:hidden'>
+          {/* <div className="hidden md:block ml-4">
             <ThemeToggle />
-          </div>
+          </div> */}
         </div>
-        <div className='hidden md:flex justify-center flex-1 gap-3'>
+        <div className="hidden md:flex items-center justify-center gap-4">
           <Link
-            href='/'
-            className={buttonVariants({ variant: 'ghost' })}
+            href="/"
+            className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
-            Home 
+            Home
           </Link>
           <Link
-            href='/about'
-            className={buttonVariants({ variant: 'ghost' })}
+            href="/about"
+            className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             About
           </Link>
-          {session ? (
-            <>
-              <Link
-                className={buttonVariants({ variant: 'ghost' })}
-                href='/dashboard'
-              >
-                Dashboard
-              </Link>
-              <SignOutButton />
-            </>
-          ) : (
-            <SignInButton />
-          )}
+
+          <Link href="/dashboard" className="text-gray-700">
+            Dashboard
+          </Link>
+          <Button className="pointer-events-none md:pointer-events-auto" disabled
+          >
+            Coming Soon
+          </Button>
+          
         </div>
-        <div className='hidden md:block'>
-          <ThemeToggle />
-        </div>
+       
       </div>
     </div>
   );

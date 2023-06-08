@@ -32,6 +32,8 @@
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.10.0",
+    "iconoir": "^6.8.0",
+    "iconoir-react": "^6.8.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.129.0",
     "nanoid": "^4.0.2",
