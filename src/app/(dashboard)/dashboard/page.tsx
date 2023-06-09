@@ -5,9 +5,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { db } from '@/lib/db';
 import ApiDashboard from '@/components/ApiDashboard';
-import RequestApiKey from '@/components/RequestApiKey';
 import UserDashboard from '@/components/UserDashboard';
-// import RequestApiKey from '@/components/RequestApiKey';
+import RequestApiKey from '@/components/RequestApiKey';
 
 export const metadata: Metadata = {
   title: 'Creavio.io | Dashboard',
