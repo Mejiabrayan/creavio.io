@@ -2,7 +2,7 @@
 
 import { createApiKey } from '@/helpers/create-api-key';
 import { FC, FormEvent, useState } from 'react';
-import { toast } from '@/ui/toast';
+import { toast } from '@/components/ui/Toast';
 import { Key } from 'lucide-react';
 import LargeHeading from '@/ui/LargeHeading';
 import Paragraph from '@/ui/Paragraph';

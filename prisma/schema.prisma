@@ -21,26 +21,9 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-  username          String? // new field
-  followers_count   Int? // new field
-  posts_count       Int? // new field
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-}
-
-model Post {
-  id      String @id @default(cuid())
-  title   String
-  content String
-}
-
-model UserContent {
-  id      String @id @default(cuid())
-  userId  String
-  content String
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Session {
@@ -52,47 +35,12 @@ model Session {
 }
 
 model User {
-  id            String        @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String?       @unique
+  email         String?   @unique
   emailVerified DateTime?
-  apiKey        ApiKey[]
-  apiKeyId      String?
+  username      String?   @unique
   image         String?
   accounts      Account[]
   sessions      Session[]
-  userContent   UserContent[]
-}
-
-model ApiKey {
-  id       String       @id @default(cuid())
-  key      String       @unique
-  enabled  Boolean      @default(true)
-  User     User         @relation(fields: [userId], references: [id])
-  userId   String
-  requests ApiRequest[]
-
-  @@unique([userId, key, enabled])
-}
-
-model ApiRequest {
-  id         String   @id @default(cuid())
-  timestamp  DateTime @default(now())
-  method     String
-  path       String
-  status     Int
-  duration   Int
-  usedApiKey String
-  ApiKey     ApiKey   @relation(fields: [apiKeyId], references: [id])
-  apiKeyId   String
-
-  @@index([apiKeyId, timestamp])
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
 }

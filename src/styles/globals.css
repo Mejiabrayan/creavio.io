@@ -14,3 +14,22 @@
 .animate-highlight {
   animation: highlight 0.5s linear forwards;
 }
+
+
+@keyframes nodeAnimation {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(32px, 0); }
+  50% { transform: translate(32px, 32px); }
+  75% { transform: translate(0, 32px); }
+  100% { transform: translate(0, 0); }
+}
+
+#grid {
+  animation: gridAnimation 2s linear infinite;
+}
+
+#node {
+  animation: nodeAnimation 2s linear infinite;
+}
+
+--text-gradient: linear-gradient(180deg,#555,#000);
